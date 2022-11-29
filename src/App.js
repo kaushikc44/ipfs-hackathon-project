@@ -1,12 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './components/home';
+import logo from "./logo.svg";
+import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
-  return (
-   <Navbar></Navbar> 
-  )
-
+  return <Home></Home>;
 }
 
 export default App;
