@@ -13,7 +13,6 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "web3.storage": "4.4.0"
-
   },
   "scripts": {
     "start": "react-scripts start",
