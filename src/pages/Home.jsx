@@ -7,10 +7,9 @@ function Home() {
   return (
     <>
       <Navbar></Navbar>
-      
+
       <Hero></Hero>
-      <Upload></Upload>
-      
+      {/* <Upload></Upload> */}
     </>
   );
 }
