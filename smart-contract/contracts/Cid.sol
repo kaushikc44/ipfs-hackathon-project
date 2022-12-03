@@ -9,11 +9,20 @@ contract Cid {
     }
     struct File {
         string fileType;
+        string name;
         string cid;
         bool isUploaded;
         uint256 createdAt;
         uint256 updatedAt;
     }
+    event fileUploaded(
+        string cid,
+        address user,
+        string fileType,
+        string name,
+        uint256 createdAt,
+        uint256 updatedAt
+    );
 
     function findFileIndex(address _user, string memory _cid)
         internal
@@ -31,13 +40,17 @@ contract Cid {
         return users[_user].files.length;
     }
 
-    function addFile(string memory _fileType, string memory _cid) public {
+    function addFile(
+        string memory _fileType,
+        string memory _cid,
+        string memory name
+    ) public {
         require(
             findFileIndex(msg.sender, _cid) == users[msg.sender].files.length,
             "File already exists"
         );
         users[msg.sender].files.push(
-            File(_fileType, _cid, false, block.timestamp, block.timestamp)
+            File(_fileType, name, _cid, false, block.timestamp, block.timestamp)
         );
     }
 
@@ -53,5 +66,13 @@ contract Cid {
         users[msg.sender]
             .files[findFileIndex(msg.sender, _cid)]
             .isUploaded = _success;
+        emit fileUploaded(
+            _cid,
+            msg.sender,
+            users[msg.sender].files[findFileIndex(msg.sender, _cid)].fileType,
+            users[msg.sender].files[findFileIndex(msg.sender, _cid)].name,
+            users[msg.sender].files[findFileIndex(msg.sender, _cid)].createdAt,
+            block.timestamp
+        );
     }
 }

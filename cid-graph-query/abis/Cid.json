@@ -1,0 +1,116 @@
+[{
+    "anonymous": false,
+    "inputs": [{
+        "indexed": false,
+        "name": "cid",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "fileType",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "createdAt",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "updatedAt",
+        "type": "uint256"
+      }
+    ],
+    "name": "fileUploaded",
+    "type": "event",
+    "signature": "0x8df9420cffd6cb5150ba152fe465c4eed729479f0faa1d389fd181b74e6e73a6"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+        "name": "_fileType",
+        "type": "string"
+      },
+      {
+        "name": "_cid",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      }
+    ],
+    "name": "addFile",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0xd45a5685"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getFiles",
+    "outputs": [{
+      "components": [{
+          "name": "fileType",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "cid",
+          "type": "string"
+        },
+        {
+          "name": "isUploaded",
+          "type": "bool"
+        },
+        {
+          "name": "createdAt",
+          "type": "uint256"
+        },
+        {
+          "name": "updatedAt",
+          "type": "uint256"
+        }
+      ],
+      "name": "",
+      "type": "tuple[]"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0x2da96d73"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+        "name": "_cid",
+        "type": "string"
+      },
+      {
+        "name": "_success",
+        "type": "bool"
+      }
+    ],
+    "name": "updateIsUploaded",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x061a84d6"
+  }
+]

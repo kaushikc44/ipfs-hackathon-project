@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Cid
+    network: goerli
+    source:
+      address: "0xa69aF20eF18Bf6Fea5A5235b37615061cD6c699B"
+      abi: Cid
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - File
+      abis:
+        - name: Cid
+          file: Cid\abis\Cid.json
+      eventHandlers:
+        - event: fileUploaded(string,address,string,string,uint256,uint256)
+          handler: handleFileUpload
+      file: Cid\Cid.wasm

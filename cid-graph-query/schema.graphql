@@ -1,0 +1,15 @@
+type File @entity{
+    id: ID!
+    cid: String!
+    name: String!
+    fileType: String!
+    createdAt: String!
+    updateAt: String!
+    user: User!
+}
+
+type User @entity{
+    id: ID!
+    address: String!
+    files: [File!] @derivedFrom(field: "user")
+}
